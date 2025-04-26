@@ -20,7 +20,7 @@ public class NeighborhoodLibrary {
             // Displays options then prompts user to input a selection
             System.out.println("=".repeat(30)+"\nWelcome to Adam's library!\n"+
                     "=".repeat(30)+"\nPlease input a number (1-3)\n"+"=".repeat(30)+
-                    "\n1.Show Available Books\n2. Show Checked Out Books\n3. Exit\n"+
+                    "\n1. Show Available Books\n2. Show Checked Out Books\n3. Exit\n"+
                     "-".repeat(30));
             int command = userInput.nextInt();
             userInput.nextLine();
@@ -30,7 +30,7 @@ public class NeighborhoodLibrary {
                         displayBooks(false);
                     else break;
 
-                    System.out.println("Check out a book - (C)\n" + "Go back to the home screen - (X)");
+                    System.out.println("(C). Check out a book \n" + "(X). Go back to the home screen");
                     if (userInput.next().equalsIgnoreCase("c") && hasBooks(false))
                         selectBook(userInput, false);
                     break;
@@ -39,7 +39,7 @@ public class NeighborhoodLibrary {
                         displayBooks(true);
                     else break;
 
-                    System.out.println("Check In a Book - (C) \n" + "Go back to the home screen - (X) ");
+                    System.out.println("(C). Check out a book \n" + "(X). Go back to the home screen");
                     if (userInput.next().equalsIgnoreCase("c") && hasBooks(true)) {
                         selectBook(userInput, true);
                     }
@@ -67,7 +67,6 @@ public class NeighborhoodLibrary {
         System.out.println("-".repeat(30)+"\nNo books to display!");
         return false;
     }
-
     // Searches through an Array of books, if userInput matches an ID, perform checkIn/checkOut depending on given parameter.
     public static void selectBook (Scanner userInput, boolean checkIn) {
         System.out.print("Please select a book by entering the ID: ");
