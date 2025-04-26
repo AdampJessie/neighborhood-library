@@ -56,15 +56,9 @@ public class Book {
 
     @Override
     public String toString() {
-        if (!isCheckedOut) {
-            return String.format("""
-                ID: %d  ISBN: %s  Title: %s
-                """, id, isbn, title);
-        } else {
-            return String.format("""
-                ID: %d  ISBN: %s  Title: %s  Current Holder: %s
-                """, id, isbn, title, checkedOutTo);
-        }
+            String message = String.format("ID: %d | ISBN: %s | Title: %s", id, isbn, title);
+            if (isCheckedOut) message += " | Current Holder: "+checkedOutTo;
+            return message;
     }
 
     public void checkOut(String name) {
