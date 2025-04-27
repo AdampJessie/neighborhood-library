@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class NeighborhoodLibrary {
 
-
-    private static Book[] books = new Book[20]; 
+    private static Book[] books = new Book[20];
 
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
@@ -25,7 +24,7 @@ public class NeighborhoodLibrary {
             int command = userInput.nextInt();
             userInput.nextLine();
             switch (command) {
-                case 1: // List books, then prompt the user to select a book or return to menu selection
+                case 1: // List only available books, then prompt the user to select a book to check out or return to menu selection
                     if (hasBooks(false))
                         displayBooks(false);
                     else break;
@@ -34,12 +33,12 @@ public class NeighborhoodLibrary {
                     if (userInput.next().equalsIgnoreCase("c") && hasBooks(false))
                         selectBook(userInput, false);
                     break;
-                case 2:
+                case 2: // List only checked out books, then prompt the user to select a book to check out or return to menu selection
                     if (hasBooks(true))
                         displayBooks(true);
                     else break;
 
-                    System.out.println("(C). Check out a book \n" + "(X). Go back to the home screen");
+                    System.out.println("(C). Check in a book \n" + "(X). Go back to the home screen");
                     if (userInput.next().equalsIgnoreCase("c") && hasBooks(true)) {
                         selectBook(userInput, true);
                     }
